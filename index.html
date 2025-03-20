@@ -171,10 +171,16 @@
                 /* Make boxes full-width on small screens */
             }
 
-            h1 {
-                font-size: 40px;
-                /* Adjust header size */
-            }
+            
+                h1 {
+          font-size: 60px;
+          background: url(sincerely-media-gPnHi8AmO5k-unsplash.jpg) no-repeat center center fixed;
+          background-size: cover;
+          color: transparent; /* Make text invisible */
+          -webkit-background-clip: text; /* Clip background to text */
+          background-clip: text; /* Standard property */
+      }
+            
         }
         .photo{
             display: grid;
@@ -197,6 +203,27 @@
             align-items: center;
             width: 100%;
         }
+        .scroll {
+            position: fixed; /* Keep button visible during scroll */
+            bottom: 20px; /* Position from the bottom */
+            right: 20px; /* Position from the right */
+            display: flex;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer; /* Show pointer cursor */
+            z-index: 9999; /* Ensure it stays on top */
+
+            /* Match background with the page */
+            background: url(sincerely-media-gPnHi8AmO5k-unsplash.jpg) no-repeat center center fixed;
+            background-size: cover;
+            color: white; /* Keep text visible */
+            border: none; /* Optional: Remove default border */
+        }
+        h4{
+            color: white;
+            font-size: 15px;
+        }
         
     </style>
 </head>
@@ -206,6 +233,7 @@
     <!-- First Section: Fullscreen with Only Name -->
     <div class="first">
         <h1>Jakub Hajný</h1>
+        
     </div>
 
     <!-- About Section (Centered Vertically) -->
@@ -253,16 +281,35 @@
         
     </div>
 
+    <!-- Button to Move Screen -->
+    <button id="moveButton" class="scroll">Posunout obrazovku</button>
+
     <!-- JavaScript for Scroll Effect -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const moveButton = document.getElementById('moveButton');
+
             document.addEventListener("scroll", function () {
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
                 if (scrollPos > 20) {
                     document.body.classList.add("scrolled");
+                    moveButton.style.display = 'none'; // Hide button after scrolling
                 } else {
                     document.body.classList.remove("scrolled");
+                    moveButton.style.display = 'flex'; // Show button if not scrolled
                 }
+            });
+        });
+    </script>
+    
+    <!-- JavaScript for Screen Movement -->
+    <script>
+        document.getElementById('moveButton').addEventListener('click', function() {
+            window.scrollBy({
+                top: 300,
+                left: 300,
+                behavior: 'smooth'
             });
         });
     </script>

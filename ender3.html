@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ender 3</title>
+    <!-- Add Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 0px;
+            background: url(moroccan-flower-dark.png);
+            background-size: auto;
+            text-align: center;
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        h1{
+            font-size: 60px;
+            background: url(moroccan-flower-dark.png);
+            background-size: cover;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .photos{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 30px;
+            justify-content: center;
+            width: 90%;
+        }
+        
+        img{
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            object-fit: cover;
+        }
+        
+        .nadpis{
+            background-color: white;
+            border-radius: 30px;
+            padding: 10px;
+        }
+        
+        .text, .upgrady {
+            display: flex;
+            background-color: white;
+            border-radius: 20px;
+            padding: 10px;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 20px;
+            text-align: left;
+            width: 50%;
+            margin-bottom: 10px;
+            flex-direction: column;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            display: none;
+        }
+        
+        .main {
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            flex-direction: column;
+        }
+        
+        .popis{
+            display: none;
+        }
+        
+        h1, h2, h3, h4, a, button {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .upgrady{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nadpis">
+        <h1>ENDER 3</h1>   
+    </div>
+    <div class="main">
+        <div class="text">
+            <p>
+                – Moje první 3D tiskárna<br><br>
+                – Koupil jsem ji v roce 2021<br>
+            </p>
+        </div>
+        <div class="upgrady">
+            <h3 class="section-title">UPGRADY</h3>
+            <p>
+                – CR Touch<br><br>
+                – Silent board<br><br>
+                – Klipper<br><br>
+                – Silent fan<br>
+            </p>
+        </div>
+       
+        <div class="photos">
+            <img src="ender_build3.png" alt="">
+            <img src="ender_build2.png" alt="">
+            <img src="ender_first_print.png" alt="">
+            <img src="ender_build4.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

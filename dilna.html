@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dílna</title>
+    <!-- Add Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 0px;
+            background: url(moroccan-flower-dark.png);
+            background-size: auto;
+            text-align: center;
+            font-family: 'Roboto Mono', monospace;
+            
+        }
+        h1{
+            font-size: 60px;
+            background: url(moroccan-flower-dark.png);
+            background-size: cover;
+            background-clip: text;
+            color: transparent;
+        }
+        .photos{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 30px;
+            justify-content: center;
+            width: 90%;
+        }
+        img{
+            width: 100%;
+            border-radius: 20px;
+            border-color: black ;
+            border-width: 2px;
+            border-style: solid;
+        }
+        .nadpis{
+            background-color: white;
+            border-radius: 30px;
+            padding: 20px;
+            
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            flex-direction: column;
+        }
+        .text {
+            display: flex;
+            background-color: white;
+            border-radius: 20px;
+            padding: 10px;
+            justify-content: center; /* Center content horizontally */
+            align-items: flex-start; /* Align items vertically to the top */
+            font-size: 20px;
+            text-align: left; /* Ensure text aligns left */
+            width: 50%; /* Limit width to 50% of the screen */
+            /*max-width: 700px; /* Ensure it doesn't stretch too wide */
+            margin-bottom: 10px;
+        }
+        .popis{
+            background-color: white;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+        }
+        
+        h1, h2, h3, h4, p, a, button {
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="nadpis">
+        <h1>DÍLNA</h1>   
+    </div>
+    <div class="main">
+        <div class="text">
+            <p> – Dílna je vestavěna ve skříni mého pokoje.<br><br>
+                – Mám zde zázemí pro realizaci svých projektů.<br><br>
+                – Hlavní prostor tvoří vyklápěcí stůl a 3D tiskárna.<br>
+                </p>
+        </div>
+       
+        <div class="photos">
+            <img src="dilna_5.png" alt="">
+            <img src="dilna_build2.png" alt="">
+            <img src="dilna_spool holder.png" alt="">
+            <img src="dilna_build.png" alt="">
+            
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakub Hajný</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            background: url(moroccan-flower-dark.png);
+            background-size:auto;
+            text-align: center;
+            overflow-y: auto;
+            color: #333;
+        }
+
+        .scrolled {
+            display: flex;
+
+            justify-content: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: black;
+            padding: 20px;
+            font-size: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            margin-top: 10vh;
+            padding-bottom: 10px;
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            width: 1000px;
+            transition: transform 0.3s ease;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            gap: 50px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(172, 171, 171);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 30%;
+            min-width: 250px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        
+
+        .box ul,
+        a {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        h2,
+        h3 {
+            color: #37474f;
+            margin: 0;
+            padding: 10px;
+        }
+
+        h2 {
+            font-size: 25px;
+            color: #37474f;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: white;
+        }
+
+        li {
+            font-size: 15px;
+            margin: 1px 0;
+            opacity: 0.9;
+        }
+
+        a {
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 60px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 60px;
+                background: url(sincerely-media-gPnHi8AmO5k-unsplash.jpg) no-repeat center center fixed;
+                background-size: cover;
+                color: white;
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+
+        }
+
+        .photo {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .div-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        img {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h4 {
+            color: white;
+            font-size: 15px;
+        }
+
+        .card {
+            background: rgb(172, 171, 171);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 18rem;
+            margin: 0;
+
+        }
+
+        .card:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: none;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 15px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .list-group-item {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-light {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .projekty {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 50px;
+            margin: 20px;
+            justify-items: center;
+            
+        }
+
+        .projekty1 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 15px;
+            margin-top: 50px;
+            width: 1000px;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .projects {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-img-top {
+            border-radius: 15px;
+            margin: 10px;
+            padding: 0 10px;
+        }
+
+        .button {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background-color: gray;
+            border-color: grey;
+            border: none;
+            transition: ease 0.3s;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: gray;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: gray;
+            border-color: grey;
+            border: none;
+            transition: ease 0.3s;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: gray;
+            border: none;
+        }
+
+        .footer {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 40px 0;
+            margin-top: 50px;
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 0 20px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #666;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 5px 0;
+            background: none;
+        }
+
+        .footer-section a:hover {
+            color: #333;
+            transform: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add these font-family declarations to ensure consistency */
+        h1, h2, h3, h4, p, a, li {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .card-text {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .footer-section p, 
+        .footer-section a, 
+        .footer-bottom p {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="top_bar">
+        <h1><b>Jakub Hajný</b></h1>
+        <a href="https://www.printables.com/@jakub_699366" class="btn btn-primary anabled" tabindex="-1" role="button"
+            aria-disabled="true">printables</a>
+        <a href="https://github.com/jakub-hajny" class="btn btn-secondary anabled" tabindex="-1" role="button"
+            aria-disabled="true">github</a>
+
+    </div>
+
+    <div class="about-container">
+        <div class="about">
+            <h2>O MNĚ:</h2>
+            <div class="section">
+                <div class="box">
+                    <h3>ZÁJMY:</h3>
+                    <ul>
+                        <li>Pájení</li>
+                        <li>3D tisk</li>
+                        <li>Sim racing</li>
+                        <li>Sport</li>
+                        <li>Programování</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h3>ÚSPĚCHY:</h3>
+                    <ul>
+                        <li>2× 2. místo v robosoutěži</li>
+                        <li>1. místo v badmintonovém turnaji</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>SKILLS:</h3>
+                    <ul>
+                        <li>Fusion 360</li>
+                        <li>Blender</li>
+                        <li>3D tisk</li>
+                        <li>Plavání</li>
+                        <li>Programování</li>
+                        <li>Elektrotechnika</li>
+                        <li>Fpv</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="projekty1">
+            <h2>PROJEKTY:</h2>
+
+            <div class="projekty">
+
+                <div class="card">
+                    <div>
+                        <h3>WALL SPOOL HOLDER</h3>
+                    </div>
+                    <a href="https://www.printables.com/model/453142-wall-spool-holder">
+                        <img src="wall spool holder.png" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">Tento velice jednoduchý držák na filament je navržen přesně pro moji dílnu.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3>DÍLNA</h3>
+                    </div>
+                    <a href="dilna.html"><img src="dilna_5.png" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <p class="card-text">Dílna, která je zabudovaná do skříně pro snadné ukrytí.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>PONORKA</h3>
+                    </div>
+                    <a href="ponorka.html"><img src="ponorka2.png" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <p class="card-text">Tento projekt mě přivedl k elektrotechnice a programování, ale bohužel jsme jej nedokončili.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>ENDER 3</h3>
+                    </div>
+                    <a href="ender3.html"><img src="ender.png" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <p class="card-text">Tato tiskárna byla vylepšena různými upgrady, například tichým ventilátorem a tichou řídicí deskou.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="div-photo">
+            <div class="photo">
+                <img src="pajenicko.png" alt="">
+                <img src="dilna_build1.png" alt="">
+                <img src="kolo.png" alt="">
+                <img src="paletomobil.png" alt="">
+                <img src="lyzovani1.png" alt="">
+                <img src="robosoutez1.png" alt="">
+                <img src="bofin.png" alt="">
+                <img src="ender_build2.png" alt="">
+                <img src="fan_capica7.png" alt="">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p>Email: jakub.hajny@icloud.com</p>
+                <p>Tel: +420 777 700 362</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Odkazy</h4>
+                <p><a href="https://www.printables.com/@jakub_699366">Printables</a></p>
+                <p><a href="https://github.com/jakub-hajny">GitHub</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>O mně</h4>
+                <p>Student se zájmem o 3D tisk, programování a elektroniku.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Jakub Hajný. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
